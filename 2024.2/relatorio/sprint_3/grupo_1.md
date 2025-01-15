@@ -43,51 +43,51 @@ As vulnerabilidades IDOR podem causar impactos severos, como:
 # Aplicação de testes no MEPA
 
 ## Teste 1
-Objetivo: acessar dados de outros usuários alterando o numero na url http://localhost:8000/api/users/X/  
-Esperado: O usuário ter permissão negada caso não seja seu ID  
-Executando teste: Ao fazer login na aplicação e obter um token valido, podemos usar o postman e alterar o id da url, a partir disso é possivel obter informações de qualquer outro usuario desde acerte o ID e como o id é sequencial é bem simples. 
-Conclusão: o endpoint de user está vulneravel IDOR
+**Objetivo**: acessar dados de outros usuários alterando o numero na url http://localhost:8000/api/users/X/  
+**Esperado**: O usuário ter permissão negada caso não seja seu ID  
+**Executando teste**: Ao fazer login na aplicação e obter um token valido, podemos usar o postman e alterar o id da url, a partir disso é possivel obter informações de qualquer outro usuario desde acerte o ID e como o id é sequencial é bem simples.   
+**Conclusão**: o endpoint de user está vulneravel IDOR
 
-execução no postman: 
-![]()
+execução no postman:  
+![imagem](../Images/teste1_idor.jpg)
 
 ## Aproveitando da vulnerabilidade encontrada no endpoint de user
 ## Teste 1.1
-Objetivo:Alterar informações de outros usuários
-Esperando: O usuário ter permissão negada
-Executando teste: Ao encontrar o id de outro usuárioalém de obter informações é possivel alterar os dados 
-conclusão: o endpoint de user está vulneravel IDOR http PUT
+**Objetivo**:Alterar informações de outros usuários  
+**Esperando**: O usuário ter permissão negada  
+**Executando teste**: Ao encontrar o id de outro usuário além de obter informações é possivel alterar os dados   
+**conclusão**: o endpoint de user está vulneravel IDOR http PUT
 
-execução no postman: 
-![]()
+Execução no postman: 
+![imagem](../Images/teste11_idor.jpg)
 
 ## Teste 1.2
-Objetivo:Excluir outros usuários
-Esperando: O usuário ter permissão negada
-Executando teste: Ao encontrar o id de outro usuário, além de obter informações é possivel excluir o usuário
+**Objetivo**:Excluir outros usuários  
+**Esperando**: O usuário ter permissão negada  
+**Executando teste**: Ao encontrar o id de outro usuário, além de obter informações é possivel excluir o usuário
 conclusão: o endpoint de user está vulneravel IDOR http PUT
 
-execução no postman: 
-![]()
+Execução no postman: 
+![imagem](../Images/teste12_idor.jpg)
 
 # Teste 2
-Objetivo: Acessar informação de conta de unidades consumidoras de outros usuarios, por meio da url: http://localhost:8000/api/energy-bills?consumer_unit_id=X
-Esperado: Acesso ser negado e não receber informações
-Executando teste: Pegando token valido em uma sessão do sistema e tentando acessar um id valido, mas de outro usuário o recurso é negado com "this user dows not have pwemission"
-Conclusão: Não está vulneravel a IDOR
+**Objetivo**: Acessar informação de conta de unidades consumidoras de outros usuarios, por meio da url: http://localhost:8000/api/energy-bills?consumer_unit_id=X  
+**Esperado**: Acesso ser negado e não receber informações  
+**Executando teste**: Pegando token valido em uma sessão do sistema e tentando acessar um id valido, mas de outro usuário o recurso é negado com "this user does not have permission"  
+**Conclusão**: Não está vulneravel a IDOR
 
 execução no postman: 
-![]()
+![imagem](../Images/teste2_idor.jpg)
 
 # Teste 3
 
-Objetivo: Acessar informação de conta de distribuidoras de outras universidades, por meio da url: http://localhost:8000/api/distributors?university_id=X
-Esperado: Acesso ser negado e não receber informações
-Executando teste: Pegando token valido em uma sessão do sistema e tentando acessar um id valido, mas de outra universidade o recurso é negado com "this user dows not have pwemission"
-Conclusão: Não está vulneravel a IDOR
+**Objetivo**: Acessar informação de conta de distribuidoras de outras universidades, por meio da url: http://localhost:8000/api/distributors?university_id=X  
+**Esperado**: Acesso ser negado e não receber informações  
+**Executando teste**: Pegando token valido em uma sessão do sistema e tentando acessar um id valido, mas de outra universidade o recurso é negado com "this user does not have permission"  
+**Conclusão**: Não está vulneravel a IDOR
 
-execução no postman: 
-![]()
+Execução no postman: 
+![imagem](../Images/teste3_idor.jpg)
 
 # Conclusão
 
